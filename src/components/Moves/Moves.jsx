@@ -21,7 +21,7 @@ function Moves(props) {
             props.moves.slice(0, moveLength).map((each_move) => {
               return (
                 <div className="move-card">
-                  <img src={props.image} />
+                  <img src={props.image} alt = "pokemon view"/>
                   <span>{each_move.move.name}</span>
                 </div>
               )

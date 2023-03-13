@@ -6,7 +6,7 @@ import Arrow from "../../components/Assets/arrow.png"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import About from "../../components/About/About"
-import Base_stat from "../../components/Base stat/Base_stat"
+import BaseStat from "../../components/Base stat/Base_stat"
 import Moves from "../../components/Moves/Moves"
 
 function Single() {
@@ -16,17 +16,15 @@ function Single() {
   const [pokeAbout, setPokeAbout] = useState([])
   const [currView, setCurrView] = useState("stats")
   const [image, setImage] = useState("")
-  const getPokemon = async () => {
-    const result = await axios.get(url)
-    const about = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${result.data.name}`)
-    setPokeAbout(about.data)
-    setPokeData(result.data)
-    setImage(result.data.sprites.other.home.front_default)
-  }
   useEffect(() => {
-    return () => {
-      getPokemon()
+    const getPokemon = async () => {
+      const result = await axios.get(url)
+      const about = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${result.data.name}`)
+      setPokeAbout(about.data)
+      setPokeData(result.data)
+      setImage(result.data.sprites.other.home.front_default)
     }
+      getPokemon()
   }, [url])
   return (
     <div>
@@ -39,7 +37,7 @@ function Single() {
           <img src={Heart} alt="like" />
         </div>
         <div className="main-section">
-          <img src={image} alt="poke image" />
+          <img src={image} alt="pokeview" />
           <div className="poke-info">
             <h1>{pokeData.name}</h1>
             <h5>Seed Pokemon</h5>
@@ -78,7 +76,7 @@ function Single() {
             </div>
             <div className="info">
               {currView === "about" && <About about={pokeAbout} weight={pokeData.weight} height={pokeData.height} />}
-              {currView === "stats" && <Base_stat stat={pokeData.stats} />}
+              {currView === "stats" && <BaseStat stat={pokeData.stats} />}
               {currView === "moves" && <Moves moves={pokeData.moves} image={image} />}
             </div>
           </div>

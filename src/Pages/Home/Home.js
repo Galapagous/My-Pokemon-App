@@ -30,7 +30,9 @@ function Home() {
     }
     try {
       const searchItem = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchInput}`)
-      setSearchView(true); setSearchInfo(searchItem.data); setSearchInput("")
+      setSearchView(true); 
+      setSearchInfo(searchItem.data); 
+      setSearchInput("")
     } catch (error) {
       alert("Sorry Name doesnt Exist")
     }

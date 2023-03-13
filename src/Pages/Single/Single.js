@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import "./single.css"
-// import Profile from "../Assets/profile.png"
 import Heart from "../../components/Assets/heart.png"
 import Arrow from "../../components/Assets/arrow.png"
 import { Link } from "react-router-dom"

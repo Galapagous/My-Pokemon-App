@@ -3,9 +3,6 @@ import { animateScroll as Scroll } from "react-scroll"
 import "./card.css"
 
 function Card(props) {
-  // const scrollUp = ()=>{
-  //   Scroll.scrollToTop
-  // }
   return(
     <div>
       <div className="card-container">
